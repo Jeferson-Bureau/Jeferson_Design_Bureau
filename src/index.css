@@ -20,4 +20,12 @@
   .hero-image-bleed {
     mask-image: linear-gradient(to right, transparent, black 40%);
   }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
 }
