@@ -1,0 +1,23 @@
+@import "tailwindcss";
+
+@theme {
+  --font-display: "Outfit", ui-sans-serif, system-ui, sans-serif;
+  --font-body: "Public Sans", ui-sans-serif, system-ui, sans-serif;
+  --color-primary: #ec5b13;
+  --color-background-dark: #000000;
+}
+
+@layer base {
+  body {
+    @apply bg-background-dark text-slate-100 font-body selection:bg-primary selection:text-white overflow-x-hidden;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-display;
+  }
+}
+
+@layer utilities {
+  .hero-image-bleed {
+    mask-image: linear-gradient(to right, transparent, black 40%);
+  }
+}
