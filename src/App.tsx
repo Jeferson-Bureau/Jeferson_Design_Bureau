@@ -26,6 +26,31 @@ import {
 
 // --- Components ---
 
+const Behance = (props: any) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M22 7h-7v1.25h7V7zM21 12c-.04-1.3-.49-2.3-1.34-3-.85-.7-2-1.04-3.43-1.04-1.41 0-2.56.46-3.46 1.37-.89.91-1.34 2.15-1.34 3.71 0 1.54.44 2.75 1.31 3.64.87.89 2.02 1.33 3.44 1.33 1.12 0 2.05-.24 2.79-.72.74-.48 1.3-1.19 1.66-2.12h-2.12c-.17.42-.48.74-.94.97-.46.23-1.01.34-1.66.34-.72 0-1.3-.22-1.73-.65-.43-.43-.67-1.07-.72-1.91h6.4c.05-.19.07-.44.07-.76v-.16zm-6.4-1.25c.05-.74.28-1.32.68-1.73.41-.41.97-.61 1.69-.61.72 0 1.27.2 1.66.61.38.41.61.98.68 1.73h-4.71zM0 3v18h7.92c1.34 0 2.45-.31 3.31-.94.86-.62 1.3-1.51 1.3-2.66 0-.74-.19-1.38-.58-1.91-.38-.53-.96-.92-1.73-1.19.65-.29 1.14-.68 1.48-1.19.34-.5.5-.1.12.5-1.84 0-1.13-.4-2.02-1.19-2.66-.79-.65-1.91-.97-3.35-.97H0zm2.74 2.52h4.5c.62 0 1.09.14 1.4.43.31.29.47.71.47 1.26 0 .53-.16.94-.47 1.22-.31.29-.78.43-1.4.43h-4.5V5.52zm0 5.87h4.79c.72 0 1.27.17 1.66.5.38.34.58.84.58 1.51 0 .67-.19 1.18-.58 1.51-.38.34-.94.5-1.66.5H2.74v-3.52z" />
+  </svg>
+);
+
+const WhatsApp = (props: any) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    {...props}
+  >
+    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3.5Z" />
+    <path fill="currentColor" stroke="none" d="M17.4 14.6c-.3-.2-.6-.3-1-.3-.3 0-.6.1-.8.3l-1.2 1.2c-.2.2-.5.2-.7 0-1.2-1.2-2.1-2.6-2.7-4.1-.1-.3 0-.6.2-.8l1.2-1.2c.2-.2.3-.5.3-.8 0-.3-.1-.6-.3-1l-1.5-2.1c-.2-.3-.5-.4-.8-.4-.3 0-.6.1-.8.3l-1.2 1.2c-.5.5-.7 1.2-.5 1.9.5 2.1 1.6 4 3.1 5.5s3.4 2.6 5.5 3.1c.7.2 1.4 0 1.9-.5l1.2-1.2c.2-.2.3-.5.3-.8s-.1-.6-.3-.8l-2.1-1.5z" />
+  </svg>
+);
+
 const Header = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -97,7 +122,7 @@ const Header = () => {
   );
 };
 
-const ProjectCard = ({ number, category, title, quote, image, reverse = false, className = "mb-40" }) => {
+const ProjectCard = ({ number, category, title, quote, image, reverse = false, className = "mb-40", onActionClick = null }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -143,10 +168,10 @@ const ProjectCard = ({ number, category, title, quote, image, reverse = false, c
         <motion.div 
           initial={{ opacity: 0, x: reverse ? 20 : -20 }}
           whileInView={{ opacity: 1, x: 0 }}
+          onClick={onActionClick}
           className={`flex items-center gap-2 text-primary font-bold uppercase tracking-widest text-sm cursor-pointer ${reverse ? 'justify-end' : 'justify-start'}`}
         >
-          <span>Ver Projeto</span>
-          <ArrowRight className="w-4 h-4 group-hover:translate-x-2 transition-transform" />
+          <ArrowRight className="w-8 h-8 group-hover:translate-x-4 transition-all duration-500" />
         </motion.div>
       </motion.div>
     </motion.div>
@@ -253,6 +278,8 @@ export default function App() {
                       quote="A arquitetura da marca como base para o crescimento exponencial."
                       image="https://picsum.photos/seed/branding/1200/800"
                       className="mb-0"
+                      reverse={true}
+                      onActionClick={() => scroll('right')}
                     />
                   </div>
                 </div>
@@ -265,6 +292,8 @@ export default function App() {
                       quote="Onde a funcionalidade encontra a estética premium nas prateleiras."
                       image="https://picsum.photos/seed/packaging/1200/800"
                       className="mb-0"
+                      reverse={true}
+                      onActionClick={() => scroll('left')}
                     />
                   </div>
                 </div>
@@ -434,9 +463,15 @@ export default function App() {
                 © {new Date().getFullYear()} Jeferson Design Bureau. All rights reserved. Precision is our signature.
               </div>
               <div className="flex gap-6">
-                {[Instagram, Linkedin, Github].map((Icon, idx) => (
-                  <a key={idx} href="#" className="text-slate-400 hover:text-primary transition-colors">
-                    <Icon className="w-5 h-5" />
+                {[
+                  { Icon: Instagram, href: "#" },
+                  { Icon: Behance, href: "https://www.behance.net" },
+                  { Icon: WhatsApp, href: "#" },
+                  { Icon: Linkedin, href: "#" },
+                  { Icon: Github, href: "#" }
+                ].map((social, idx) => (
+                  <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors">
+                    <social.Icon className="w-5 h-5" />
                   </a>
                 ))}
               </div>
