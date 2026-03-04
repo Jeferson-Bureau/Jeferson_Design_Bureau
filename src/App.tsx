@@ -18,6 +18,7 @@ import {
   Phone, 
   MapPin, 
   ArrowRight,
+  ArrowLeft,
   Instagram,
   Linkedin,
   Github
@@ -96,7 +97,7 @@ const Header = () => {
   );
 };
 
-const ProjectCard = ({ number, category, title, quote, image, reverse = false }) => {
+const ProjectCard = ({ number, category, title, quote, image, reverse = false, className = "mb-40" }) => {
   const ref = useRef(null);
   const { scrollYProgress } = useScroll({
     target: ref,
@@ -112,7 +113,7 @@ const ProjectCard = ({ number, category, title, quote, image, reverse = false })
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-      className={`relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center group mb-40`}
+      className={`relative grid grid-cols-1 lg:grid-cols-12 gap-12 items-center group ${className}`}
     >
       <motion.div 
         whileHover={{ scale: 0.98 }}
@@ -165,6 +166,18 @@ const ServiceCard = ({ icon: Icon, title, description }) => (
 );
 
 export default function App() {
+  const scrollContainerRef = useRef<HTMLDivElement>(null);
+
+  const scroll = (direction: 'left' | 'right') => {
+    if (scrollContainerRef.current) {
+      const scrollAmount = scrollContainerRef.current.offsetWidth;
+      scrollContainerRef.current.scrollBy({
+        left: direction === 'left' ? -scrollAmount : scrollAmount,
+        behavior: 'smooth'
+      });
+    }
+  };
+
   return (
     <div className="min-h-screen">
       <Header />
@@ -225,36 +238,72 @@ export default function App() {
           </div>
 
           <div className="max-w-7xl mx-auto">
-            <ProjectCard 
-              number="01"
-              category="Identidade Visual"
-              title="Nexus Corp."
-              quote="A arquitetura da marca como base para o crescimento exponencial."
-              image="https://picsum.photos/seed/branding/1200/800"
-            />
-            <ProjectCard 
-              number="02"
-              category="Design de Embalagens"
-              title="Stellar Pack"
-              quote="Onde a funcionalidade encontra a estética premium nas prateleiras."
-              image="https://picsum.photos/seed/packaging/1200/800"
-              reverse
-            />
-            <ProjectCard 
-              number="03"
-              category="Design Editorial"
-              title="Mono Edition"
-              quote="O equilíbrio perfeito entre tipografia e espaço em branco."
-              image="https://picsum.photos/seed/magazine/1200/800"
-            />
-            <ProjectCard 
-              number="04"
-              category="Web Design"
-              title="Core Interface"
-              quote="Interfaces digitais que priorizam a performance e a experiência do usuário."
-              image="https://picsum.photos/seed/website/1200/800"
-              reverse
-            />
+            {/* Horizontal Scroll Group for Identidade Visual */}
+            <div className="relative group/scroll">
+              <div 
+                ref={scrollContainerRef}
+                className="flex gap-12 overflow-x-auto pb-20 snap-x snap-mandatory no-scrollbar -mx-6 px-6 lg:mx-0 lg:px-0"
+              >
+                <div className="min-w-full lg:min-w-[1280px] snap-center flex justify-center">
+                  <div className="w-full max-w-7xl">
+                    <ProjectCard 
+                      number="01"
+                      category="Identidade Visual"
+                      title="Nexus Corp."
+                      quote="A arquitetura da marca como base para o crescimento exponencial."
+                      image="https://picsum.photos/seed/branding/1200/800"
+                      className="mb-0"
+                    />
+                  </div>
+                </div>
+                <div className="min-w-full lg:min-w-[1280px] snap-center flex justify-center">
+                  <div className="w-full max-w-7xl">
+                    <ProjectCard 
+                      number="02"
+                      category="Identidade Visual"
+                      title="Stellar Pack"
+                      quote="Onde a funcionalidade encontra a estética premium nas prateleiras."
+                      image="https://picsum.photos/seed/packaging/1200/800"
+                      className="mb-0"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              {/* Scroll Arrows */}
+              <div className="hidden lg:flex absolute -bottom-10 right-0 gap-4 z-20">
+                <button 
+                  onClick={() => scroll('left')}
+                  className="w-12 h-12 flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-all group/btn"
+                >
+                  <ArrowLeft className="w-5 h-5 text-white group-hover/btn:text-black" />
+                </button>
+                <button 
+                  onClick={() => scroll('right')}
+                  className="w-12 h-12 flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-all group/btn"
+                >
+                  <ArrowRight className="w-5 h-5 text-white group-hover/btn:text-black" />
+                </button>
+              </div>
+            </div>
+
+            <div className="mt-20 lg:mt-40">
+              <ProjectCard 
+                number="03"
+                category="Design Editorial"
+                title="Mono Edition"
+                quote="O equilíbrio perfeito entre tipografia e espaço em branco."
+                image="https://picsum.photos/seed/magazine/1200/800"
+              />
+              <ProjectCard 
+                number="04"
+                category="Web Design"
+                title="Core Interface"
+                quote="Interfaces digitais que priorizam a performance e a experiência do usuário."
+                image="https://picsum.photos/seed/website/1200/800"
+                reverse
+              />
+            </div>
           </div>
         </section>
 
