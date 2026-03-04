@@ -201,10 +201,10 @@ export default function App() {
               className="lg:w-3/4"
             >
               <span className="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-8 block">Bureau de Design Gráfico</span>
-              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase mb-10">
-                Ideia e <br />
-                <span className="text-primary">Forma</span> que <br />
-                Fala.
+              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase mb-10 text-white">
+                Ideia <br />
+                E Forma <br />
+                Que Fala<span className="text-primary">.</span>
               </h1>
               <div className="flex flex-col md:flex-row gap-12 items-start">
                 <p className="max-w-md text-xl text-slate-300 font-light leading-relaxed border-l-4 border-primary pl-8">
