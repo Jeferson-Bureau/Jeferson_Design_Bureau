@@ -66,7 +66,7 @@ const Header = () => {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md h-16 border-b border-white/10' : 'bg-transparent h-24'}`}>
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <div className="flex items-center">
-          <img src={logo} alt="Jeferson Bureau" className="h-8 md:h-10 w-auto" />
+          <img src={logo} alt="Jeferson Bureau" className="h-10 md:h-12 w-auto" />
         </div>
 
         <nav className="hidden md:flex items-center gap-12">
@@ -231,14 +231,6 @@ export default function App() {
                 <p className="max-w-md text-xl text-slate-300 font-light leading-relaxed border-l-4 border-primary pl-8">
                   Especialistas em Identidade Visual, Embalagens, Editorial e Web Design. Transformamos conceitos em experiências visuais de alto impacto técnico e estético.
                 </p>
-                <div className="flex flex-col gap-4 pt-2">
-                  <a href="#projetos" className="bg-primary text-white px-10 py-5 font-black uppercase tracking-widest text-sm hover:translate-x-2 transition-transform inline-block text-center">
-                    Explorar Portfólio
-                  </a>
-                  <a href="#contato" className="bg-white text-black px-10 py-5 font-black uppercase tracking-widest text-sm hover:bg-primary hover:text-white transition-colors inline-block text-center">
-                    Iniciar Projeto
-                  </a>
-                </div>
               </div>
             </motion.div>
           </div>
@@ -300,12 +292,14 @@ export default function App() {
                 <button
                   onClick={() => scroll('left')}
                   className="w-12 h-12 flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-all group/btn"
+                  aria-label="Projetos anteriores"
                 >
                   <ArrowLeft className="w-5 h-5 text-white group-hover/btn:text-black" />
                 </button>
                 <button
                   onClick={() => scroll('right')}
                   className="w-12 h-12 flex items-center justify-center border border-white/20 hover:bg-primary hover:border-primary transition-all group/btn"
+                  aria-label="Próximos projetos"
                 >
                   <ArrowRight className="w-5 h-5 text-white group-hover/btn:text-black" />
                 </button>
@@ -430,7 +424,10 @@ export default function App() {
                   </div>
                   <div>
                     <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">Assunto</label>
-                    <select className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white px-0 py-4 transition-colors">
+                    <select
+                      className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white px-0 py-4 transition-colors"
+                      aria-label="Assunto do contato"
+                    >
                       <option className="bg-black">Branding / Identidade</option>
                       <option className="bg-black">Design Digital</option>
                       <option className="bg-black">Tech / Development</option>
@@ -463,7 +460,7 @@ export default function App() {
                   { Icon: Linkedin, href: "#" },
                   { Icon: Github, href: "#" }
                 ].map((social, idx) => (
-                  <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors">
+                  <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors" aria-label={`Rede social ${idx + 1}`}>
                     <social.Icon className="w-5 h-5" />
                   </a>
                 ))}
