@@ -221,7 +221,7 @@ export default function App() {
               transition={{ duration: 0.8 }}
               className="lg:w-3/4"
             >
-              <span className="text-primary font-bold uppercase tracking-[0.4em] text-xs mb-8 block">Bureau de Design Gráfico</span>
+              <span className="text-primary font-bold uppercase tracking-[0.4em] text-[13.8px] mb-8 block">Bureau de Design Gráfico</span>
               <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase mb-10 text-white">
                 Ideia <br />
                 E Forma <br />
@@ -385,7 +385,6 @@ export default function App() {
               </div>
             </div>
           </div>
-          <span className="absolute -bottom-20 -right-20 text-[300px] font-black leading-none text-black/5 select-none uppercase tracking-tighter pointer-events-none">FORMA</span>
         </section>
 
         {/* Contact Section */}
