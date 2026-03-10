@@ -443,16 +443,8 @@ export default function App() {
                     <input className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="seu@email.com" type="email" />
                   </div>
                   <div>
-                    <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">Assunto</label>
-                    <select
-                      className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white px-0 py-4 transition-colors"
-                      aria-label="Assunto do contato"
-                    >
-                      <option className="bg-black">Branding / Identidade</option>
-                      <option className="bg-black">Design Digital</option>
-                      <option className="bg-black">Tech / Development</option>
-                      <option className="bg-black">Outros</option>
-                    </select>
+                    <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">Telefone</label>
+                    <input className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="Ex: (44) 99910-9034" type="tel" />
                   </div>
                   <div>
                     <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">Mensagem</label>
