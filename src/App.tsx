@@ -205,7 +205,7 @@ export default function App() {
 
       <main>
         {/* Hero Section */}
-        <section className="relative min-h-screen flex items-center overflow-hidden">
+        <section className="relative min-h-screen flex items-end overflow-hidden pb-32 md:pb-40">
           <div className="absolute inset-0 z-0 lg:left-1/3 hero-image-bleed opacity-40 lg:opacity-60 pointer-events-none">
             <img
               className="w-full h-full object-cover grayscale"
@@ -214,7 +214,7 @@ export default function App() {
               referrerPolicy="no-referrer"
             />
           </div>
-          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full pt-20">
+          <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
             <motion.div
               initial={{ opacity: 0, x: -50 }}
               animate={{ opacity: 1, x: 0 }}
