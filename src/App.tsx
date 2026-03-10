@@ -233,7 +233,7 @@ export default function App() {
               className="lg:w-3/4"
             >
               <span className="text-primary font-bold uppercase tracking-[0.4em] text-[13.8px] mb-8 block">Bureau de Design Gráfico</span>
-              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase text-white">
+              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase text-white translate-y-[130px]">
                 Ideia <br />
                 E Forma <br />
                 Que Fala<span className="text-primary">.</span>
