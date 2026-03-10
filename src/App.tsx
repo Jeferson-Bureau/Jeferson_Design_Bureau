@@ -23,7 +23,8 @@ import {
   ArrowRight,
   ArrowLeft,
   Instagram,
-  Linkedin
+  Linkedin,
+  Paperclip
 } from 'lucide-react';
 
 // --- Components ---
@@ -455,7 +456,14 @@ export default function App() {
                     <input className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="Ex: (44) 99910-9034" type="tel" />
                   </div>
                   <div>
-                    <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">Mensagem</label>
+                    <div className="flex justify-between items-center mb-2">
+                      <label className="block text-xs font-black uppercase tracking-widest text-primary">Mensagem</label>
+                      <label className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-slate-400 hover:text-primary cursor-pointer transition-colors">
+                        <Paperclip className="w-3 h-3" />
+                        <span>Enviar Arquivo</span>
+                        <input type="file" className="hidden" />
+                      </label>
+                    </div>
                     <textarea className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="Conte-nos sobre seu projeto..." rows={4}></textarea>
                   </div>
                   <button className="w-full bg-primary py-5 text-white font-black uppercase tracking-widest text-sm hover:bg-white hover:text-black transition-all">
