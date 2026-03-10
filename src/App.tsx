@@ -398,16 +398,20 @@ export default function App() {
                 </p>
                 <div className="space-y-6">
                   {[
-                    { icon: Mail, text: 'jeferson.arte@gmail.com' },
-                    { icon: Phone, text: '+55 11 99999-9999' },
-                    { icon: MapPin, text: 'São Paulo, Brasil' }
+                    { icon: Mail, text: 'jeferson.arte@gmail.com', href: 'mailto:jeferson.arte@gmail.com' },
+                    { icon: Phone, text: '+55 44 99910-9034', href: 'tel:+5544999109034' },
+                    { icon: MapPin, text: 'Sarandi - Paraná - Brasil' }
                   ].map((item, idx) => (
-                    <div key={idx} className="flex items-center gap-4 group cursor-pointer">
+                    <a
+                      key={idx}
+                      href={item.href}
+                      className={`flex items-center gap-4 group transition-all ${item.href ? 'cursor-pointer hover:text-primary' : 'cursor-default'}`}
+                    >
                       <div className="w-12 h-12 flex items-center justify-center border border-white/20 group-hover:bg-primary transition-all">
-                        <item.icon className="w-5 h-5 text-white group-hover:text-black" />
+                        <item.icon className={`w-5 h-5 text-white ${item.href ? 'group-hover:text-black' : ''}`} />
                       </div>
                       <span className="text-xl font-bold">{item.text}</span>
-                    </div>
+                    </a>
                   ))}
                 </div>
               </div>
