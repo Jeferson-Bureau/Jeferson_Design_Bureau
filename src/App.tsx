@@ -7,6 +7,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import logo from './assets/logo.png';
 import whatsappLogo from './assets/whatsapp.png';
+import behanceLogo from './assets/behance.png';
 import {
   Menu,
   X,
@@ -22,28 +23,30 @@ import {
   ArrowRight,
   ArrowLeft,
   Instagram,
-  Linkedin,
-  Github
+  Linkedin
 } from 'lucide-react';
 
 // --- Components ---
 
 const Behance = (props: any) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
+  <div
     {...props}
-  >
-    <path d="M22 7h-7v1.25h7V7zM21 12c-.04-1.3-.49-2.3-1.34-3-.85-.7-2-1.04-3.43-1.04-1.41 0-2.56.46-3.46 1.37-.89.91-1.34 2.15-1.34 3.71 0 1.54.44 2.75 1.31 3.64.87.89 2.02 1.33 3.44 1.33 1.12 0 2.05-.24 2.79-.72.74-.48 1.3-1.19 1.66-2.12h-2.12c-.17.42-.48.74-.94.97-.46.23-1.01.34-1.66.34-.72 0-1.3-.22-1.73-.65-.43-.43-.67-1.07-.72-1.91h6.4c.05-.19.07-.44.07-.76v-.16zm-6.4-1.25c.05-.74.28-1.32.68-1.73.41-.41.97-.61 1.69-.61.72 0 1.27.2 1.66.61.38.41.61.98.68 1.73h-4.71zM0 3v18h7.92c1.34 0 2.45-.31 3.31-.94.86-.62 1.3-1.51 1.3-2.66 0-.74-.19-1.38-.58-1.91-.38-.53-.96-.92-1.73-1.19.65-.29 1.14-.68 1.48-1.19.34-.5.5-.1.12.5-1.84 0-1.13-.4-2.02-1.19-2.66-.79-.65-1.91-.97-3.35-.97H0zm2.74 2.52h4.5c.62 0 1.09.14 1.4.43.31.29.47.71.47 1.26 0 .53-.16.94-.47 1.22-.31.29-.78.43-1.4.43h-4.5V5.52zm0 5.87h4.79c.72 0 1.27.17 1.66.5.38.34.58.84.58 1.51 0 .67-.19 1.18-.58 1.51-.38.34-.94.5-1.66.5H2.74v-3.52z" />
-  </svg>
+    className={`${props.className} bg-current transition-all duration-300 scale-110`}
+    style={{
+      WebkitMask: `url("${behanceLogo}") no-repeat center / contain`,
+      mask: `url("${behanceLogo}") no-repeat center / contain`,
+    }}
+  />
 );
 
 const WhatsApp = (props: any) => (
-  <img
-    src={whatsappLogo}
-    alt="WhatsApp"
+  <div
     {...props}
-    className={`${props.className} object-contain`}
+    className={`${props.className} bg-current transition-all duration-300`}
+    style={{
+      WebkitMask: `url("${whatsappLogo}") no-repeat center / contain`,
+      mask: `url("${whatsappLogo}") no-repeat center / contain`,
+    }}
   />
 );
 
@@ -61,7 +64,11 @@ const Header = () => {
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md h-16 border-b border-white/10' : 'bg-transparent h-24'}`}>
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
         <a href="#top" className="flex items-center" aria-label="Voltar para o topo">
-          <img src={logo} alt="Jeferson Bureau" className="h-10 md:h-12 w-auto" />
+          <img
+            src={logo}
+            alt="Jeferson Bureau"
+            className={`h-10 md:h-12 w-auto transition-all duration-300 origin-left ${isScrolled ? 'scale-80' : 'scale-100'}`}
+          />
         </a>
 
         <nav className="hidden md:flex items-center gap-12">
@@ -417,11 +424,17 @@ export default function App() {
                       { Icon: Instagram, href: "#" },
                       { Icon: Behance, href: "https://www.behance.net" },
                       { Icon: WhatsApp, href: "#" },
-                      { Icon: Linkedin, href: "#" },
-                      { Icon: Github, href: "#" }
+                      { Icon: Linkedin, href: "#" }
                     ].map((social, idx) => (
-                      <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors" aria-label={`Rede social ${idx + 1}`}>
-                        <social.Icon className="w-6 h-6" />
+                      <a
+                        key={idx}
+                        href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="group transition-all duration-300"
+                        aria-label={`Rede social ${idx + 1}`}
+                      >
+                        <social.Icon className="w-6 h-6 text-white opacity-40 group-hover:opacity-100 group-hover:text-primary transition-all duration-300" />
                       </a>
                     ))}
                   </div>
