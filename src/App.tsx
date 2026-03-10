@@ -6,6 +6,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useScroll, useTransform } from 'motion/react';
 import logo from './assets/logo.png';
+import whatsappLogo from './assets/whatsapp.png';
 import {
   Menu,
   X,
@@ -38,18 +39,12 @@ const Behance = (props: any) => (
 );
 
 const WhatsApp = (props: any) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
+  <img
+    src={whatsappLogo}
+    alt="WhatsApp"
     {...props}
-  >
-    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 1 1-7.6-10.6 8.38 8.38 0 0 1 3.8.9L21 3.5Z" />
-    <path fill="currentColor" stroke="none" d="M17.4 14.6c-.3-.2-.6-.3-1-.3-.3 0-.6.1-.8.3l-1.2 1.2c-.2.2-.5.2-.7 0-1.2-1.2-2.1-2.6-2.7-4.1-.1-.3 0-.6.2-.8l1.2-1.2c.2-.2.3-.5.3-.8 0-.3-.1-.6-.3-1l-1.5-2.1c-.2-.3-.5-.4-.8-.4-.3 0-.6.1-.8.3l-1.2 1.2c-.5.5-.7 1.2-.5 1.9.5 2.1 1.6 4 3.1 5.5s3.4 2.6 5.5 3.1c.7.2 1.4 0 1.9-.5l1.2-1.2c.2-.2.3-.5.3-.8s-.1-.6-.3-.8l-2.1-1.5z" />
-  </svg>
+    className={`${props.className} object-contain`}
+  />
 );
 
 const Header = () => {
