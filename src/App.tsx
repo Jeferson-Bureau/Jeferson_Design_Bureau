@@ -398,7 +398,7 @@ export default function App() {
                 </p>
                 <div className="space-y-6">
                   {[
-                    { icon: Mail, text: 'hello@jefersonbureau.com' },
+                    { icon: Mail, text: 'jeferson.arte@gmail.com' },
                     { icon: Phone, text: '+55 11 99999-9999' },
                     { icon: MapPin, text: 'São Paulo, Brasil' }
                   ].map((item, idx) => (
