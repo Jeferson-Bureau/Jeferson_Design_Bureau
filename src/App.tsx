@@ -70,13 +70,17 @@ const Header = () => {
         </div>
 
         <nav className="hidden md:flex items-center gap-12">
-          {['Projetos', 'Serviços', 'Filosofia'].map((item) => (
+          {[
+            { name: 'Projetos', id: 'projetos' },
+            { name: 'Serviços', id: 'servicos' },
+            { name: 'Filosofia', id: 'filosofia' }
+          ].map((item) => (
             <a
-              key={item}
-              href={`#${item.toLowerCase()}`}
+              key={item.name}
+              href={`#${item.id}`}
               className="text-sm font-bold uppercase tracking-widest hover:text-primary transition-colors"
             >
-              {item}
+              {item.name}
             </a>
           ))}
           <a
@@ -101,14 +105,19 @@ const Header = () => {
             exit={{ opacity: 0, y: -20 }}
             className="absolute top-full left-0 w-full bg-black border-b border-white/10 p-6 flex flex-col gap-6 md:hidden"
           >
-            {['Projetos', 'Serviços', 'Filosofia', 'Contato'].map((item) => (
+            {[
+              { name: 'Projetos', id: 'projetos' },
+              { name: 'Serviços', id: 'servicos' },
+              { name: 'Filosofia', id: 'filosofia' },
+              { name: 'Contato', id: 'contato' }
+            ].map((item) => (
               <a
-                key={item}
-                href={`#${item.toLowerCase()}`}
+                key={item.name}
+                href={`#${item.id}`}
                 className="text-lg font-bold uppercase tracking-widest"
                 onClick={() => setIsMenuOpen(false)}
               >
-                {item}
+                {item.name}
               </a>
             ))}
           </motion.div>
@@ -222,16 +231,16 @@ export default function App() {
               className="lg:w-3/4"
             >
               <span className="text-primary font-bold uppercase tracking-[0.4em] text-[13.8px] mb-8 block">Bureau de Design Gráfico</span>
-              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase mb-10 text-white">
-                Ideia <br />
-                E Forma <br />
-                Que Fala<span className="text-primary">.</span>
-              </h1>
-              <div className="flex flex-col md:flex-row gap-12 items-start">
+              <div className="flex flex-col md:flex-row gap-12 items-start mb-10">
                 <p className="max-w-md text-xl text-slate-300 font-light leading-relaxed border-l-4 border-primary pl-8">
                   Especialistas em Identidade Visual, Embalagens, Editorial e Web Design. Transformamos conceitos em experiências visuais de alto impacto técnico e estético.
                 </p>
               </div>
+              <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase text-white">
+                Ideia <br />
+                E Forma <br />
+                Que Fala<span className="text-primary">.</span>
+              </h1>
             </motion.div>
           </div>
         </section>
