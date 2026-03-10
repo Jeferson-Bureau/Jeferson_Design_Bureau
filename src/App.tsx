@@ -65,9 +65,9 @@ const Header = () => {
   return (
     <header className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-black/90 backdrop-blur-md h-16 border-b border-white/10' : 'bg-transparent h-24'}`}>
       <div className="max-w-7xl mx-auto px-6 h-full flex items-center justify-between">
-        <div className="flex items-center">
+        <a href="#top" className="flex items-center" aria-label="Voltar para o topo">
           <img src={logo} alt="Jeferson Bureau" className="h-10 md:h-12 w-auto" />
-        </div>
+        </a>
 
         <nav className="hidden md:flex items-center gap-12">
           {[
@@ -209,7 +209,7 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen">
+    <div id="top" className="min-h-screen">
       <Header />
 
       <main>
@@ -453,12 +453,9 @@ export default function App() {
             </div>
 
             <div className="mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-              <div className="flex items-center grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100">
+              <a href="#top" className="flex items-center grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100" aria-label="Voltar para o topo">
                 <img src={logo} alt="Jeferson Bureau" className="h-6 w-auto" />
-              </div>
-              <div className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]">
-                © {new Date().getFullYear()} Jeferson Design Bureau. All rights reserved. Precision is our signature.
-              </div>
+              </a>
               <div className="flex gap-6">
                 {[
                   { Icon: Instagram, href: "#" },
@@ -472,6 +469,12 @@ export default function App() {
                   </a>
                 ))}
               </div>
+            </div>
+            <div className="mt-24 opacity-10 w-full pointer-events-none select-none">
+              <img src={logo} alt="" className="w-full h-auto grayscale" />
+            </div>
+            <div className="mt-12 text-center text-[10px] text-slate-500 font-bold uppercase tracking-[0.2em]">
+              © {new Date().getFullYear()} Jeferson Design Bureau. All rights reserved. Precision is our signature.
             </div>
           </div>
         </footer>
