@@ -417,6 +417,19 @@ export default function App() {
                       <span className="text-xl font-bold">{item.text}</span>
                     </a>
                   ))}
+                  <div className="flex gap-6 mt-12 pt-8 border-t border-white/10">
+                    {[
+                      { Icon: Instagram, href: "#" },
+                      { Icon: Behance, href: "https://www.behance.net" },
+                      { Icon: WhatsApp, href: "#" },
+                      { Icon: Linkedin, href: "#" },
+                      { Icon: Github, href: "#" }
+                    ].map((social, idx) => (
+                      <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors" aria-label={`Rede social ${idx + 1}`}>
+                        <social.Icon className="w-6 h-6" />
+                      </a>
+                    ))}
+                  </div>
                 </div>
               </div>
               <div className="bg-zinc-900/50 p-10 border border-white/5">
@@ -426,7 +439,7 @@ export default function App() {
                     <input className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="Ex: João Silva" type="text" />
                   </div>
                   <div>
-                    <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">E-mail Corporativo</label>
+                    <label className="block text-xs font-black uppercase tracking-widest text-primary mb-2">E-mail</label>
                     <input className="w-full bg-transparent border-0 border-b-2 border-white/10 focus:border-primary focus:ring-0 text-white placeholder-white/20 px-0 py-4 transition-colors" placeholder="seu@email.com" type="email" />
                   </div>
                   <div>
@@ -452,23 +465,7 @@ export default function App() {
               </div>
             </div>
 
-            <div className="mt-32 pt-8 border-t border-white/10 flex flex-col md:flex-row justify-between items-center gap-6">
-              <a href="#top" className="flex items-center grayscale hover:grayscale-0 transition-all opacity-50 hover:opacity-100" aria-label="Voltar para o topo">
-                <img src={logo} alt="Jeferson Bureau" className="h-6 w-auto" />
-              </a>
-              <div className="flex gap-6">
-                {[
-                  { Icon: Instagram, href: "#" },
-                  { Icon: Behance, href: "https://www.behance.net" },
-                  { Icon: WhatsApp, href: "#" },
-                  { Icon: Linkedin, href: "#" },
-                  { Icon: Github, href: "#" }
-                ].map((social, idx) => (
-                  <a key={idx} href={social.href} className="text-slate-400 hover:text-primary transition-colors" aria-label={`Rede social ${idx + 1}`}>
-                    <social.Icon className="w-5 h-5" />
-                  </a>
-                ))}
-              </div>
+            <div className="mt-32 pt-8 border-t border-white/10">
             </div>
             <div className="mt-24 opacity-10 w-full pointer-events-none select-none">
               <img src={logo} alt="" className="w-full h-auto grayscale" />
