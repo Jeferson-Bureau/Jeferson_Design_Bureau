@@ -231,11 +231,6 @@ export default function App() {
               className="lg:w-3/4"
             >
               <span className="text-primary font-bold uppercase tracking-[0.4em] text-[13.8px] mb-8 block">Bureau de Design Gráfico</span>
-              <div className="flex flex-col md:flex-row gap-12 items-start mb-10">
-                <p className="max-w-md text-xl text-slate-300 font-light leading-relaxed border-l-4 border-primary pl-8">
-                  Especialistas em Identidade Visual, Embalagens, Editorial e Web Design. Transformamos conceitos em experiências visuais de alto impacto técnico e estético.
-                </p>
-              </div>
               <h1 className="text-6xl md:text-8xl lg:text-[140px] font-black leading-[0.85] tracking-tighter uppercase text-white">
                 Ideia <br />
                 E Forma <br />
